@@ -1,0 +1,176 @@
+.creators-page {
+  padding-top: 80px;
+  min-height: 100vh;
+  background: #0d0d0d;
+  overflow: hidden;
+}
+
+/* ── Marquee Row Container ── */
+.marquee-row {
+  width: 100%;
+  overflow: hidden;
+  padding: 12px 0;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+/* ── Marquee Track ── */
+.marquee-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+}
+
+/* Row 1 — right to left */
+@keyframes marqueeLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.33%); }
+}
+
+/* Row 2 — left to right */
+@keyframes marqueeRight {
+  0%   { transform: translateX(-33.33%); }
+  100% { transform: translateX(0); }
+}
+
+.marquee-left {
+  animation: marqueeLeft 20s linear infinite;
+}
+
+.marquee-right {
+  animation: marqueeRight 20s linear infinite;
+}
+
+.marquee-left:hover,
+.marquee-right:hover {
+  animation-play-state: paused;
+}
+
+/* ── Creator Card ── */
+.marquee-card {
+  flex-shrink: 0;
+  width: 200px;
+  height: 280px;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid rgba(255,255,255,0.08);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  transform: perspective(800px) rotateY(-3deg);
+}
+
+.marquee-card:hover {
+  transform: perspective(800px) rotateY(0deg) scale(1.06);
+  border-color: var(--gold, #d4a017);
+  z-index: 5;
+}
+
+.marquee-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  filter: brightness(0.85);
+}
+
+.marquee-card:hover img {
+  transform: scale(1.08);
+  filter: brightness(1);
+}
+
+/* ── Card Overlay ── */
+.marquee-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
+  padding: 30px 14px 14px;
+  color: white;
+}
+
+.marquee-card-overlay h3 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.marquee-card-overlay p {
+  font-size: 11px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.verified-dot {
+  font-size: 10px;
+  background: rgba(29, 78, 216, 0.8);
+  color: #bfdbfe;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* ── Center Title Block ── */
+.creators-title-block {
+  text-align: center;
+  padding: 50px 20px;
+  color: white;
+}
+
+.creators-title-block .badge {
+  background: rgba(212, 160, 23, 0.2);
+  color: var(--gold, #d4a017);
+  border: 1px solid var(--gold, #d4a017);
+  padding: 5px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.creators-title-block h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.creators-title-block .gold-text {
+  color: var(--gold, #d4a017);
+}
+
+.creators-title-block p {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.6);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ── Empty / Loader ── */
+.empty-state {
+  text-align: center;
+  padding: 100px 20px;
+  color: white;
+}
+
+.empty-icon { font-size: 4rem; margin-bottom: 16px; }
+.empty-state h3 { color: white; margin-bottom: 8px; }
+.empty-state p  { color: rgba(255,255,255,0.6); font-size: 14px; margin-bottom: 20px; }
+
+.page-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}

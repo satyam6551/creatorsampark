@@ -1,0 +1,15 @@
+{
+  "name": "creatorsSampark",
+  "version": "1.0.0",
+  "description": "CreatorsSampark - Full Stack MERN Influencer Marketing Platform",
+  "scripts": {
+    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "start-backend": "cd backend && npm start",
+    "start-frontend": "cd frontend && npm start",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\"",
+    "seed": "node scripts/seed.js"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
