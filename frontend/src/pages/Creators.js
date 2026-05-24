@@ -92,7 +92,6 @@ const CreatorCard = ({ creator }) => (
     <div className="marquee-card-overlay">
       <h3>{creator.name}</h3>
       <p>{creator.category}</p>
-      {creator.isVerified && <span className="verified-dot">✓ Verified</span>}
     </div>
   </Link>
 );

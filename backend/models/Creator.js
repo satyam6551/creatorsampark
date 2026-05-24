@@ -6,9 +6,9 @@ const creatorSchema = new mongoose.Schema({
   category: { type: String, required: true },
   platform: { type: [String], default: ['Instagram'] },
   followers: { type: Number, default: 0 },
-  engagementRate: { type: Number, default: 0 },
   location: { type: String },
   bio: { type: String },
+  motivationLine: { type: String },
   avatar: { type: String },
   coverImage: { type: String },
   socialLinks: {
@@ -19,11 +19,7 @@ const creatorSchema = new mongoose.Schema({
     tiktok: String
   },
   tags: [String],
-  pricePerPost: { type: Number, default: 0 },
-  isVerified: { type: Boolean, default: false },
   isFeatured: { type: Boolean, default: false },
-  rating: { type: Number, default: 0 },
-  totalCampaigns: { type: Number, default: 0 },
   createdAt: { type: Date, default: Date.now }
 });
 

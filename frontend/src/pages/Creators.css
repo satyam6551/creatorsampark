@@ -1,7 +1,7 @@
 .creators-page {
   padding-top: 80px;
   min-height: 100vh;
-  background: #0d0d0d;
+  background: linear-gradient(180deg, #07040e 0%, #0e0818 50%, #07040e 100%);
   overflow: hidden;
 }
 
@@ -9,15 +9,15 @@
 .marquee-row {
   width: 100%;
   overflow: hidden;
-  padding: 12px 0;
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  padding: 10px 0;
+  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
 }
 
 /* ── Marquee Track ── */
 .marquee-track {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   width: max-content;
 }
 
@@ -34,11 +34,11 @@
 }
 
 .marquee-left {
-  animation: marqueeLeft 20s linear infinite;
+  animation: marqueeLeft 22s linear infinite;
 }
 
 .marquee-right {
-  animation: marqueeRight 20s linear infinite;
+  animation: marqueeRight 22s linear infinite;
 }
 
 .marquee-left:hover,
@@ -49,22 +49,24 @@
 /* ── Creator Card ── */
 .marquee-card {
   flex-shrink: 0;
-  width: 200px;
-  height: 280px;
-  border-radius: 18px;
+  width: 300px;
+  height: 420px;
+  border-radius: var(--radius-lg, 20px);
   overflow: hidden;
   position: relative;
   display: block;
   text-decoration: none;
   cursor: pointer;
-  border: 2px solid rgba(255,255,255,0.08);
-  transition: transform 0.3s ease, border-color 0.3s ease;
-  transform: perspective(800px) rotateY(-3deg);
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+  transform: perspective(800px) rotateY(-2deg);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
 }
 
 .marquee-card:hover {
-  transform: perspective(800px) rotateY(0deg) scale(1.06);
-  border-color: var(--gold, #d4a017);
+  transform: perspective(800px) rotateY(0deg) scale(1.05);
+  border-color: rgba(212, 160, 23, 0.5);
+  box-shadow: 0 16px 48px rgba(79,26,214,0.2), 0 0 0 1px rgba(212,160,23,0.2);
   z-index: 5;
 }
 
@@ -72,13 +74,13 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
-  filter: brightness(0.85);
+  transition: transform 0.5s ease, filter 0.5s ease;
+  filter: brightness(0.75) saturate(1.1);
 }
 
 .marquee-card:hover img {
-  transform: scale(1.08);
-  filter: brightness(1);
+  transform: scale(1.06);
+  filter: brightness(0.9) saturate(1.2);
 }
 
 /* ── Card Overlay ── */
@@ -87,74 +89,83 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
-  padding: 30px 14px 14px;
+  background: linear-gradient(to top, rgba(5,0,20,0.95) 0%, rgba(5,0,20,0.4) 65%, transparent 100%);
+  padding: 40px 14px 14px;
   color: white;
 }
 
 .marquee-card-overlay h3 {
   font-size: 14px;
   font-weight: 700;
-  margin-bottom: 3px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.marquee-card-overlay p {
-  font-size: 11px;
-  color: rgba(255,255,255,0.7);
   margin-bottom: 4px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  letter-spacing: 0.3px;
 }
 
-.verified-dot {
+.marquee-card-overlay p {
   font-size: 10px;
-  background: rgba(29, 78, 216, 0.8);
-  color: #bfdbfe;
-  padding: 2px 8px;
-  border-radius: 10px;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   font-weight: 600;
 }
+
 
 /* ── Center Title Block ── */
 .creators-title-block {
   text-align: center;
   padding: 50px 20px;
   color: white;
+  position: relative;
+}
+
+.creators-title-block::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 200px;
+  background: radial-gradient(ellipse, rgba(79, 26, 214, 0.08) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .creators-title-block .badge {
-  background: rgba(212, 160, 23, 0.2);
+  background: rgba(212, 160, 23, 0.1);
   color: var(--gold, #d4a017);
-  border: 1px solid var(--gold, #d4a017);
-  padding: 5px 16px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
+  border: 1px solid rgba(212, 160, 23, 0.25);
+  padding: 6px 18px;
+  border-radius: 24px;
+  font-size: 11px;
+  font-weight: 700;
   display: inline-block;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
+  letter-spacing: 1.5px;
 }
 
 .creators-title-block h1 {
-  font-size: 3rem;
+  font-size: 3.2rem;
   font-weight: 900;
   font-family: 'Playfair Display', serif;
-  margin-bottom: 12px;
-  line-height: 1.2;
-}
-
-.creators-title-block .gold-text {
-  color: var(--gold, #d4a017);
+  margin-bottom: 14px;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 30px rgba(79,26,214,0.25);
 }
 
 .creators-title-block p {
   font-size: 1rem;
-  color: rgba(255,255,255,0.6);
-  max-width: 500px;
+  color: rgba(255,255,255,0.4);
+  max-width: 480px;
   margin: 0 auto;
+  font-weight: 400;
 }
 
 /* ── Empty / Loader ── */
@@ -166,7 +177,7 @@
 
 .empty-icon { font-size: 4rem; margin-bottom: 16px; }
 .empty-state h3 { color: white; margin-bottom: 8px; }
-.empty-state p  { color: rgba(255,255,255,0.6); font-size: 14px; margin-bottom: 20px; }
+.empty-state p  { color: rgba(255,255,255,0.4); font-size: 14px; margin-bottom: 20px; }
 
 .page-loader {
   display: flex;

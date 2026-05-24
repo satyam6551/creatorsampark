@@ -27,17 +27,6 @@ const testimonials = [
   { name: 'Sameer Khanna', role: 'Founder, TechGadgets', text: 'The team is professional and the creators are top-notch. Our YouTube campaign went viral within 48 hours of launch!', rating: 5, avatar: 'https://randomuser.me/api/portraits/men/33.jpg' },
 ];
 
-const categories = [
-  { name: 'Fashion & Lifestyle', icon: '👗', count: 85 },
-  { name: 'Food & Travel', icon: '✈️', count: 60 },
-  { name: 'Tech & Gaming', icon: '🎮', count: 72 },
-  { name: 'Fitness & Health', icon: '💪', count: 55 },
-  { name: 'Beauty & Skincare', icon: '💄', count: 68 },
-  { name: 'Comedy & Entertainment', icon: '😂', count: 90 },
-  { name: 'Education', icon: '📚', count: 45 },
-  { name: 'Music & Dance', icon: '🎵', count: 50 },
-];
-
 const Home = () => {
   const [featuredCreators, setFeaturedCreators] = useState([]);
   const [activeCampaigns, setActiveCampaigns] = useState([]);
@@ -74,12 +63,7 @@ const Home = () => {
               </Link>
             </div>
             <div className="hero-trust">
-              <div className="trust-avatars">
-                {['women/1', 'men/2', 'women/3', 'men/4', 'women/5'].map((p, i) => (
-                  <img key={i} src={`https://randomuser.me/api/portraits/${p}.jpg`} alt="" style={{ zIndex: 5 - i }} />
-                ))}
-              </div>
-              <p><strong>100+</strong> creators on our platform</p>
+              <p><strong>500+</strong> verified creators &nbsp;•&nbsp; <strong>200+</strong> brand campaigns &nbsp;•&nbsp; <strong>50M+</strong> reach</p>
             </div>
           </div>
           <div className="hero-visual">
@@ -124,22 +108,28 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CATEGORIES */}
-      <section className="categories-section">
-        <div className="container">
-          <div className="text-center">
-            <span className="badge">Explore Niches</span>
-            <h2 className="section-title" style={{ marginTop: 12 }}>Browse by Category</h2>
-            <p className="section-subtitle">Find the perfect creator in your industry niche</p>
+      {/* ABOUT SECTION */}
+      <section className="about-section">
+        <div className="container about-grid">
+          <div className="about-content">
+            <span className="badge">About Us</span>
+            <h2 className="section-title">Connecting Brands with <br /><span className="gold-text">Top Creators</span></h2>
+            <p className="about-text">
+              CreatorsSampark is India's leading influencer marketing and talent management platform. We bridge the gap between creative talents and forward-thinking brands, crafting campaigns that drive real results.
+            </p>
+            <p className="about-text">
+              With over 500+ verified creators across various niches, we ensure your brand reaches the right audience with authenticity and impact.
+            </p>
+            <Link to="/about" className="btn-primary" style={{ marginTop: 20, display: 'inline-flex' }}>Know More About Us <FaArrowRight /></Link>
           </div>
-          <div className="categories-grid">
-            {categories.map((cat, i) => (
-              <Link to={`/creators?category=${encodeURIComponent(cat.name)}`} key={i} className="category-card">
-                <span className="cat-icon">{cat.icon}</span>
-                <h4>{cat.name}</h4>
-                <p>{cat.count}+ creators</p>
-              </Link>
-            ))}
+          <div className="about-image-wrapper">
+            <div className="about-image-box">
+               <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="About CreatorsSampark" />
+               <div className="experience-badge">
+                 <strong>5+</strong>
+                 <span>Years of Excellence</span>
+               </div>
+            </div>
           </div>
         </div>
       </section>
@@ -153,11 +143,10 @@ const Home = () => {
             <div className="home-marquee-track home-marquee-left">
               {[...featuredCreators, ...featuredCreators, ...featuredCreators].map((creator, i) => (
                 <Link to={`/creators/${creator._id}`} key={`r1-${i}`} className="home-marquee-card">
-                  <img src={creator.avatar || 'https://randomuser.me/api/portraits/women/10.jpg'} alt={creator.name} />
+                  <img src={creator.avatar || '/uploads/avatars/nancy-tyagi.jpg'} alt={creator.name} />
                   <div className="home-marquee-overlay">
                     <h3>{creator.name}</h3>
                     <p>{creator.category}</p>
-                    {creator.isVerified && <span className="home-verified-dot">✓ Verified</span>}
                   </div>
                 </Link>
               ))}
@@ -176,11 +165,10 @@ const Home = () => {
             <div className="home-marquee-track home-marquee-right">
               {[...featuredCreators, ...featuredCreators, ...featuredCreators].map((creator, i) => (
                 <Link to={`/creators/${creator._id}`} key={`r2-${i}`} className="home-marquee-card">
-                  <img src={creator.avatar || 'https://randomuser.me/api/portraits/women/10.jpg'} alt={creator.name} />
+                  <img src={creator.avatar || '/uploads/avatars/nancy-tyagi.jpg'} alt={creator.name} />
                   <div className="home-marquee-overlay">
                     <h3>{creator.name}</h3>
                     <p>{creator.category}</p>
-                    {creator.isVerified && <span className="home-verified-dot">✓ Verified</span>}
                   </div>
                 </Link>
               ))}

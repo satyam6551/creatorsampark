@@ -1,16 +1,16 @@
-.campaigns-page { padding-top: 80px; min-height: 100vh; }
+.campaigns-page { padding-top: 80px; min-height: 100vh; background: #ffffff; }
 
-.campaigns-layout { padding: 40px 20px; }
+.campaigns-layout { padding: 50px 20px; }
 
 .camp-filters {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  background: white;
-  padding: 16px 20px;
-  border-radius: 12px;
-  border: 1.5px solid var(--border);
+  background: var(--light-bg);
+  padding: 14px 20px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
   margin-bottom: 20px;
   flex-wrap: wrap;
 }
@@ -20,21 +20,22 @@
 .filter-right { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
 
 .filter-select {
-  border: 1.5px solid var(--border);
-  border-radius: 8px;
-  padding: 9px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 16px;
   font-size: 13px;
   color: var(--text);
-  font-family: 'Poppins', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   outline: none;
   background: white;
   cursor: pointer;
+  transition: var(--transition);
 }
 
 .filter-select:focus { border-color: var(--gold); }
 
 .results-count {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--gray);
   margin-bottom: 24px;
   font-weight: 500;
@@ -43,49 +44,52 @@
 .campaigns-full-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  gap: 22px;
 }
 
 .campaign-full-card {
   background: white;
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  border: 1.5px solid var(--border);
-  transition: all 0.3s;
+  border: 1px solid var(--border);
+  transition: var(--transition);
   display: flex;
   flex-direction: column;
 }
 
 .campaign-full-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow);
-  border-color: var(--gold);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(212,160,23,0.3);
 }
 
 .camp-img-wrap { height: 200px; overflow: hidden; }
-.camp-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
-.campaign-full-card:hover .camp-img-wrap img { transform: scale(1.05); }
+.camp-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.campaign-full-card:hover .camp-img-wrap img { transform: scale(1.04); }
 
 .camp-content { padding: 22px; flex: 1; display: flex; flex-direction: column; }
 
 .camp-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
 
 .camp-category {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--gray);
-  font-weight: 500;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .camp-content h3 {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--primary);
   margin-bottom: 10px;
   line-height: 1.4;
+  letter-spacing: -0.2px;
 }
 
 .camp-content p {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--gray);
   line-height: 1.7;
   margin-bottom: 18px;
@@ -104,26 +108,26 @@
 
 .camp-detail-item { display: flex; flex-direction: column; gap: 3px; }
 .camp-detail-item.full-width { grid-column: 1/-1; }
-.camp-detail-item span { font-size: 11px; color: var(--gray); }
-.camp-detail-item strong { font-size: 13px; color: var(--primary); font-weight: 600; }
+.camp-detail-item span { font-size: 10px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
+.camp-detail-item strong { font-size: 13px; color: var(--primary); font-weight: 700; }
 
 .camp-actions { display: flex; gap: 10px; }
 
 .btn-save {
   flex: 1;
   background: transparent;
-  border: 1.5px solid var(--border);
+  border: 1px solid var(--border);
   color: var(--gray);
   padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 14px;
+  border-radius: 10px;
+  font-size: 13px;
   font-weight: 600;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: var(--transition);
 }
 
-.btn-save:hover { border-color: var(--gold); color: var(--gold); }
+.btn-save:hover { border-color: rgba(212,160,23,0.4); color: var(--gold-dark); }
 
 .camp-actions .btn-primary { flex: 2; justify-content: center; }
 
@@ -149,10 +153,10 @@
   right: 24px;
   z-index: 9999;
   padding: 14px 22px;
-  border-radius: 12px;
+  border-radius: var(--radius);
   font-size: 14px;
   font-weight: 600;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
   animation: toastIn 0.4s ease;
   max-width: 360px;
 }
@@ -160,13 +164,13 @@
 .apply-toast.success {
   background: #dcfce7;
   color: #166534;
-  border: 1.5px solid #86efac;
+  border: 1px solid #86efac;
 }
 
 .apply-toast.error {
   background: #fee2e2;
   color: #991b1b;
-  border: 1.5px solid #fca5a5;
+  border: 1px solid #fca5a5;
 }
 
 @keyframes toastIn {
@@ -176,11 +180,12 @@
 
 /* Status badges */
 .status-badge {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
-  padding: 3px 10px;
+  padding: 4px 12px;
   border-radius: 20px;
-  text-transform: capitalize;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
 }
 
 .status-badge.active {
@@ -203,8 +208,8 @@ button:disabled {
   display: flex;
   align-items: center;
   gap: 0;
-  background: rgba(255,255,255,0.15);
-  border: 1.5px solid rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
   border-radius: 30px;
   overflow: hidden;
   max-width: 380px;
@@ -216,22 +221,22 @@ button:disabled {
   background: transparent;
   border: none;
   outline: none;
-  padding: 10px 18px;
+  padding: 11px 18px;
   color: white;
   font-size: 14px;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'DM Sans', sans-serif;
 }
 
-.search-bar input::placeholder { color: rgba(255,255,255,0.6); }
+.search-bar input::placeholder { color: rgba(255,255,255,0.4); }
 
 .search-bar button {
   background: var(--gold);
   border: none;
-  padding: 10px 18px;
+  padding: 11px 18px;
   color: var(--primary);
   cursor: pointer;
   font-size: 15px;
-  transition: background 0.2s;
+  transition: var(--transition);
 }
 
 .search-bar button:hover { background: var(--gold-dark); }

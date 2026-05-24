@@ -38,12 +38,26 @@ const Navbar = () => {
         </button>
 
         <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
-          <li><Link to="/" className={location.pathname === '/' ? 'active' : ''}>Home</Link></li>
-          <li><Link to="/creators" className={location.pathname === '/creators' ? 'active' : ''}>Creators</Link></li>
-          <li><Link to="/campaigns" className={location.pathname === '/campaigns' ? 'active' : ''}>Campaigns</Link></li>
-          <li><Link to="/services" className={location.pathname === '/services' ? 'active' : ''}>Services</Link></li>
-          <li><Link to="/about" className={location.pathname === '/about' ? 'active' : ''}>About</Link></li>
-          <li><Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>Contact</Link></li>
+          {[
+            { to: '/', label: 'Home' },
+            { to: '/about', label: 'About' },
+            { to: '/creators', label: 'Creators' },
+            { to: '/campaigns', label: 'Campaigns' },
+            { to: '/contact', label: 'Contact' },
+          ].map((link) => (
+            <li key={link.to}>
+              <Link
+                to={link.to}
+                className={location.pathname === link.to ? 'active' : ''}
+                onClick={() => {
+                  setMenuOpen(false);
+                  window.scrollTo(0, 0);
+                }}
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
         </ul>
 
         <div className="nav-actions">

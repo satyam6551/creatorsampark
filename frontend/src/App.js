@@ -4,6 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthProvider } from './context/AuthContext';
 import Navbar from './components/Navbar';
+import ScrollToTop from './components/ScrollToTop';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Creators from './pages/Creators';
@@ -19,6 +20,7 @@ function App() {
   return (
     <AuthProvider>
       <Router>
+        <ScrollToTop />
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
